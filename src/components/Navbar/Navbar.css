@@ -1,0 +1,18 @@
+nav , .ul-onglet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.ul-onglet{
+    width: 50%;
+    padding: 1rem;
+    font-family: "Lacquer", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ul-onglet a {
+    color: black;
+}

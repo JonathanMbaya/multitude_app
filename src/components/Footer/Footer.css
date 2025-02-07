@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    bottom: 0px;
+    background-color: white;
+    color: black;
+    font-family: "Lacquer", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer-links li a{
+    color: black;
+}
+
+.footer-logo{
+    width: 200px;
+    height: 200px;
+}

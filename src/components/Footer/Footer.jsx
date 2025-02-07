@@ -1,0 +1,55 @@
+import React from "react";
+import { Link } from "react-router-dom"; // ✅ Import de Link
+import { Instagram } from 'lucide-react';
+import "./Footer.css";
+
+function Footer() {
+  const sitemap = [
+    "Musique",
+    "Cinéma",
+    "Littérature",
+    "Culture & Société",
+    "Les réco de la rédac.",
+  ];
+
+  const utileSite = [
+    "Accueil",
+    "Qui sommes-nous ?",
+    "Mentions Légales",
+  ];
+
+  return (
+    <footer>
+        <img src="/171.webp" alt="logo multitude long complet" className="footer-logo" />
+
+        <ul className="footer-links">
+          {sitemap.map((onglet, index) => (
+            <li key={index}>
+              <Link to={`/${onglet.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}>
+                {onglet}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="footer-links">
+          {utileSite.map((onglet, index) => (
+            <li key={index}>
+              <Link to={`/${onglet.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}>
+                {onglet}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="footer-social">
+          <h5>Suivez-nous sur les réseaux sociaux</h5>
+          <div className="social-icons">
+            <Instagram color="black"/>
+          </div>
+        </div>
+    </footer>
+  );
+}
+
+export default Footer;
