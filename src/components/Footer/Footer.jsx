@@ -15,6 +15,7 @@ function Footer() {
   const utileSite = [
     "Accueil",
     "A propos",
+    "Contactez-nous",
     "Mentions Légales",
   ];
 
@@ -23,7 +24,7 @@ function Footer() {
         <img src="/171.webp" alt="logo multitude long complet" className="footer-logo" />
 
         <ul className="footer-links">
-          {sitemap.map((onglet, index) => (
+          {utileSite.map((onglet, index) => (
             <li key={index}>
               <Link to={`/${onglet.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}>
                 {onglet}
@@ -33,7 +34,7 @@ function Footer() {
         </ul>
 
         <ul className="footer-links">
-          {utileSite.map((onglet, index) => (
+          {sitemap.map((onglet, index) => (
             <li key={index}>
               <Link to={`/${onglet.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}>
                 {onglet}
