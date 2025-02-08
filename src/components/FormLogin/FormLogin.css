@@ -60,7 +60,7 @@ input {
     font-size: 1rem;
 }
 
-button {
+.login-container button {
     background: black;
     color: white;
     padding: 14px;
