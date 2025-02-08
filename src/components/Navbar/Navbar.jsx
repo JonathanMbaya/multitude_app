@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X , Instagram} from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons"; // ✅ Correction ici
+
 import "./Navbar.css";
 
 function Navbar() {
@@ -18,7 +21,19 @@ function Navbar() {
 
   return (
     <>
+      <div className="icon-network">
+        <div className="icons">
+          <Instagram color="black" />
+        </div>
+
+        <div className="icons">
+          <Link to="https://www.tiktok.com/@multitudemedia_" target="_blank">
+            <FontAwesomeIcon icon={faTiktok} size="lg" />
+          </Link>
+        </div>
+      </div>
       <nav className="navbar">
+
         {/* Logo */}
         <a href="/">
           <img className="logo-short" src="/181.webp" alt="Logo de Multitude" />

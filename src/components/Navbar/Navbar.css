@@ -19,6 +19,10 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  .ul-onglet li {
+    color: black;
+  }
   
   .ul-onglet a {
     color: black;
@@ -86,6 +90,25 @@
     cursor: pointer;
   }
 
+  .icon-network {
+    position: fixed;
+    right: 4rem;
+    bottom: 30rem;
+  }
+
+  .icons, .icons a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    margin: 1rem;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: white;
+    color: black;
+  }
+
   /* RESPONSIVE */
   @media screen and (max-width: 768px) {
     .burger-menu {
@@ -114,4 +137,24 @@
     .ul-onglet li {
       margin: 10px 0;
     }
+
+    .icon-network {
+        position: fixed;
+        z-index: 2000;
+        right: .5rem;
+        bottom: 5rem;
+    }
+
+    .icons, .icons a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .5rem;
+        margin: 1rem;
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        background-color: white;
+        color: black;
+      }
   }
