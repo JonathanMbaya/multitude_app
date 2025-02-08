@@ -1,0 +1,123 @@
+.bannerh1 {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    gap: 10px;
+    margin-top: 2rem;
+    height: 10vh;
+    font-size: 2rem;
+    transform: scale(1.5, 2); /* Étire le texte : 1.5x horizontalement et 2x verticalement */
+    font-size: 2rem;
+    letter-spacing: 2px; /* Espacement horizontal */
+    line-height: 1.5rem; /* Espacement vertical */
+    font-family: "Anton", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.bannerhome {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    gap: 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.part, .partOne {
+    position: relative;
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.partOne img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.part img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+/* Styles pour les images secondaires */
+.secondImage {
+    position: relative;
+    width: 100%;
+    height: 25vh;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.secondImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conteneur du texte */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay h2 {
+    opacity: 1;
+}
+
+.secondImage:hover .overlay, .partOne:hover .overlay {
+    opacity: 1;
+}
+
+/* Titre et description */
+.overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Bouton "Voir plus" */
+.overlay button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 30%;
+}
+
+/* .overlay button:hover {
+    background-color: #535bf2;
+} */

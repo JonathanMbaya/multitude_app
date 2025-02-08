@@ -1,0 +1,51 @@
+.category-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .articles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .post-article {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .post-article img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .post-text {
+    text-align: left;
+    color: white;
+  }
+  
+  .post-text h2 {
+    margin: 10px 0;
+  }
+  
+  .btn-more {
+    margin: 20px 0;
+    padding: 10px 10px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  

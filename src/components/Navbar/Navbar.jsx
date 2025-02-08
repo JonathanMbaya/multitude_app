@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   const onglets = [
     "Musique",
@@ -14,24 +15,32 @@ function Navbar() {
   ];
 
   return (
-    <nav>
+    <nav className="navbar">
+      {/* Logo */}
+      <a href="/">
         <img className="logo-short" src="/181.webp" alt="Logo de Multitude" />
-    
+      </a>
 
-        {/* Menu de navigation */}
-        <ul className="ul-onglet">
-          {onglets.map((onglet, index) => (
-            <li key={index}>
-              <Link to={`/${onglet.toLowerCase().replace(/ & /g, "-")}`} onClick={() => setIsOpen(false)}>
-                {onglet}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      {/* Icône menu burger pour mobile */}
+      <button className="burger-menu" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
 
-        <div style={{padding: '1rem'}}>
-          <Search  color="black" />
-        </div>
+      {/* Menu de navigation */}
+      <ul className={`ul-onglet ${isOpen ? "open" : ""}`}>
+        {onglets.map((onglet, index) => (
+          <li key={index}>
+            <Link to={`/category`} onClick={() => setIsOpen(false)}>
+              {onglet}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Icône de recherche */}
+      <div className="search-icon">
+        <Search color="black" />
+      </div>
     </nav>
   );
 }
