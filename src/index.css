@@ -63,6 +63,16 @@ hr {
   margin: 10px 0; /* Espacement vertical */
 }
 
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label{
+  color: black;
+}
+
 @media screen and (max-width: 768px) {
   .logo-short {
     width: 50px;

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Single from "./pages/Single";
 import Contact from "./pages/Contact";
+import Connexion from "./pages/Connexion";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/article" element={<Single/>} />
         <Route path="/category" element={<Category/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/admin/secret" element={<Connexion/>} />
       </Routes>
     </Router>
   );
