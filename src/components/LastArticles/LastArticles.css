@@ -40,3 +40,18 @@
     width: 30%;
     padding: 1rem;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    .latest{
+        padding: .5rem;
+    }
+    .post-article-home{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+}

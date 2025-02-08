@@ -6,9 +6,9 @@ function OneArticle() {
         <main className='singlePage'>
             {/* Colonne principale : Article */}
             <div className='part-one-article'>
-                <h2>Titre de l'article</h2>
+                <h1>Titre de l'article</h1>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
 
                 <img 
                     src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop" 

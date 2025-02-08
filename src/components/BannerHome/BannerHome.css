@@ -1,26 +1,3 @@
-.bannerh1 {
-    position: relative;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    gap: 10px;
-    margin-top: 2rem;
-    height: 10vh;
-    font-size: 2rem;
-    transform: scale(1.5, 2); /* Étire le texte : 1.5x horizontalement et 2x verticalement */
-    font-size: 2rem;
-    letter-spacing: 2px; /* Espacement horizontal */
-    line-height: 1.5rem; /* Espacement vertical */
-    font-family: "Anton", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
 .bannerhome {
     display: flex;
     justify-content: space-between;
@@ -29,11 +6,18 @@
     max-width: 1200px;
     margin: auto;
     gap: 10px;
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 2rem;
 }
 
+.bannerh1 {
+    font-size: 54px;
+    position: absolute;
+    top: -40px;
+    left: -20px;
+}
 
+/* Les sections principales */
 .part, .partOne {
     position: relative;
     width: 50%;
@@ -43,19 +27,23 @@
     justify-content: space-between;
 }
 
+/* Images principales */
 .partOne img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
 }
 
+/* Images secondaires */
 .part img {
     width: 100%;
     height: 50vh;
     object-fit: cover;
+    cursor: pointer;
 }
 
-/* Styles pour les images secondaires */
+/* Conteneur des images secondaires */
 .secondImage {
     position: relative;
     width: 100%;
@@ -70,7 +58,7 @@
     object-fit: cover;
 }
 
-/* Conteneur du texte */
+/* Effet d'apparition du texte avec un fond dégradé */
 .overlay {
     position: absolute;
     bottom: 0;
@@ -87,15 +75,6 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-.overlay h2 {
-    opacity: 1;
-}
-
-.secondImage:hover .overlay, .partOne:hover .overlay {
-    opacity: 1;
-}
-
-/* Titre et description */
 .overlay h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -118,6 +97,49 @@
     width: 30%;
 }
 
-/* .overlay button:hover {
-    background-color: #535bf2;
-} */
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .bannerhome {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: .5rem;
+    }
+
+    .bannerh1 {
+        font-size: 54px;
+        position: absolute;
+        top: -40px;
+        left: 0px;
+    }
+
+    .part, .partOne {
+        width: 100%;
+        height: auto;
+    }
+
+    .part img,
+    .partOne img {
+        height: auto;
+    }
+
+    .secondImage {
+        height: 30vh;
+    }
+
+    .overlay {
+        padding: 15px;
+    }
+
+    .overlay h3 {
+        font-size: 1rem;
+    }
+
+    .overlay p {
+        font-size: 0.8rem;
+    }
+
+    .overlay button {
+        width: 50%;
+    }
+}

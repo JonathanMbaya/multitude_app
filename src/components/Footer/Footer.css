@@ -11,6 +11,12 @@ footer {
     flex-wrap: wrap;
 }
 
+footer h5{
+    font-family: "Lacquer", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .footer-links {
     list-style: none;
     padding: 0;

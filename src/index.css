@@ -22,7 +22,7 @@ body {
 }
 
 .logo-short{
-  width: 100px;
+  width: 50px;
   height: 100px;
 }
 
@@ -30,7 +30,7 @@ body {
 /* 🔹 TYPOGRAPHIE & ESPACEMENTS  */
 /* ============================= */
 h1, h2{
-  font-family: "Anton", serif;
+  font-family: "Fjalla One", serif;
   font-weight: 400;
   font-style: normal;
   font-weight: 600;
@@ -40,10 +40,10 @@ h1, h2{
 h3, h4, h5, h6{
   font-weight: 600;
   margin-bottom: 0.5em;
-  font-family: "Lacquer", serif;
+  font-family: "Fjalla One", serif;
+  /* font-family: "Lacquer", serif; */
   font-weight: 400;
   font-style: normal;
-  color: red;
 }
 
 p {
@@ -61,3 +61,12 @@ hr {
   background-color: rgb(80, 80, 80); /* Couleur de la ligne */
   margin: 10px 0; /* Espacement vertical */
 }
+
+@media screen and (max-width: 768px) {
+  .logo-short {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+

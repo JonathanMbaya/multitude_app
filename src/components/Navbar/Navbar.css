@@ -42,8 +42,49 @@
   /* Icône de recherche */
   .search-icon {
     padding: 1rem;
+    cursor: pointer;
   }
   
+  /* Barre de recherche */
+  .search-bar {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transition: top 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .search-bar.open {
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+    height: 40vh;
+  }
+  
+  .search-bar input {
+    width: 80%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border: none;
+    border-bottom: .1rem solid lightgray;
+  }
+  
+  .close-search {
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
   /* RESPONSIVE */
   @media screen and (max-width: 768px) {
     .burger-menu {
@@ -71,4 +112,3 @@
       margin: 10px 0;
     }
   }
-  

@@ -70,6 +70,7 @@
     .singlePage {
         flex-direction: column;
         gap: 30px;
+        padding: .5rem;
     }
 
     .part-one-article, .part-suggestion {
