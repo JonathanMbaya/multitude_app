@@ -1,0 +1,96 @@
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;  /* Permet d'adapter la mise en page sur petits écrans */
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Illustration */
+.contact-illustration {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-illustration img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Formulaire */
+form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+label {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contact-container button {
+    background: black;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+/* ✅ Responsive pour mobiles et tablettes */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column-reverse;
+        padding: 15px;
+    }
+
+    .contact-illustration {
+        order: -1; /* Place l'illustration en premier */
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    form {
+        width: 100%;
+    }
+}

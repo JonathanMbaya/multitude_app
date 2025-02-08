@@ -33,6 +33,7 @@ function Navbar() {
               </Link>
             </li>
           ))}
+          <li><Link to="/contact">Contactez-nous</Link></li>
         </ul>
 
         {/* Icône de recherche */}

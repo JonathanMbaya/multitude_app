@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import { RotateCw } from 'lucide-react';
 import './Category.css';
 
 const articles = [
@@ -32,7 +33,7 @@ function Category() {
     <>
       <Navbar />
       <main className="category-page">
-        <h2>Musique</h2>
+        <h1 bannerh1>Musique</h1>
 
         <div className="articles-container">
           {articles.map((article, index) => (
@@ -63,7 +64,7 @@ function Category() {
         <motion.button
           className="btn-more"
         >
-          Afficher plus
+          <RotateCw/>  Voir plus
         </motion.button>
 
         <hr />

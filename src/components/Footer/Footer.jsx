@@ -14,7 +14,7 @@ function Footer() {
 
   const utileSite = [
     "Accueil",
-    "Qui sommes-nous ?",
+    "A propos",
     "Mentions Légales",
   ];
 
