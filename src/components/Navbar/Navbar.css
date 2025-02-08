@@ -107,6 +107,8 @@
   
     .ul-onglet.open {
       display: flex;
+      position: absolute;
+      z-index: 2000;
     }
   
     .ul-onglet li {
