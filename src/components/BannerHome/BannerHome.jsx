@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './BannerHome.css';
 
 function BannerHome() {
@@ -7,7 +7,7 @@ function BannerHome() {
     return (
         <>
             <div className='bannerhome'> 
-                
+
                 <div className='partOne'>
                     <img onClick={navigate('/article')}
                         src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop" 
@@ -18,7 +18,9 @@ function BannerHome() {
 
                         <h3>Titre de l'article</h3>
                         <p>Description rapide de l'article en question...</p>
-                        <button><a href="/article">Voir plus</a></button>
+                        <Link to='/article'>
+                            <button>Voir plus</button>
+                        </Link>
                     </div>
                 </div>
 
