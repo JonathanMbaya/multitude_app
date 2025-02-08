@@ -48,6 +48,7 @@
   /* Barre de recherche */
   .search-bar {
     position: absolute;
+    z-index: 1000;
     top: -50px;
     left: 0;
     width: 100%;
@@ -63,7 +64,7 @@
   }
   
   .search-bar.open {
-    top: 130px;
+    top: 90px;
     opacity: 1;
     visibility: visible;
     height: 40vh;
