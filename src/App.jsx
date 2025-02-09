@@ -4,6 +4,7 @@ import Category from "./pages/Category";
 import Single from "./pages/Single";
 import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
+import Reco from "./pages/Reco";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/article" element={<Single/>} />
         <Route path="/category" element={<Category/>} />
+        <Route path="/reco/multimusique" element={<Reco/>} />
+        <Route path="/reco/multicinema" element={<Reco/>} />
+        <Route path="/reco/multilecture" element={<Reco/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/admin/secret" element={<Connexion/>} />
       </Routes>

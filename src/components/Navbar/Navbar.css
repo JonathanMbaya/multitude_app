@@ -109,6 +109,44 @@
     color: black;
   }
 
+  /* ✅ Style pour le menu déroulant */
+.dropdown {
+    position: relative;
+  }
+  
+  .dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+  }
+  
+  .dropdown-menu li {
+    padding: 8px 15px;
+    transition: background 0.3s ease-in-out;
+  }
+
+  
+
   /* RESPONSIVE */
   @media screen and (max-width: 768px) {
     .burger-menu {

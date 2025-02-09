@@ -23,7 +23,7 @@ function Footer() {
 
   return (
     <footer>
-      <img src="/171.webp" alt="logo multitude long complet" className="footer-logo" />
+      <img src="/171.png" alt="logo multitude long complet" className="footer-logo" />
 
       <ul className="footer-links">
         {utileSite.map((onglet, index) => (
