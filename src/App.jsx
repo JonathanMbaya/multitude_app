@@ -18,7 +18,7 @@ function App() {
         <Route path="/reco/multicinema" element={<Reco/>} />
         <Route path="/reco/multilecture" element={<Reco/>} />
         <Route path="/contact" element={<Contact/>} />
-        <Route path="/admin/secret-portal" element={<Connexion/>} />
+        <Route path="/admin/login" element={<Connexion/>} />
         <Route path="/admin" element={<AdminHome/>} />
 
       </Routes>
