@@ -1,0 +1,217 @@
+/* Overlay sombre avec flou */
+.article-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Conteneur du formulaire */
+.article-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    height: 80vh;
+    max-width: 1200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.formArticle{
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+}
+
+/* Animation d’apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bouton de fermeture */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.close-modal:hover {
+    color: #c0392b;
+}
+
+/* Style du formulaire */
+.article-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.article-form h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.article-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.article-form input,
+.article-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.article-form input{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.article-form textarea {
+    height: 300px;
+    resize: none;
+}
+
+.article-form .extract {
+    height: 50px;
+    resize: none;
+}
+
+.article-form button {
+    padding: 10px;
+    border: none;
+    background: #3498db;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.article-form button:hover {
+    background: black;
+}
+
+/* Aperçu de l'image */
+.image-preview {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .article-form-container {
+        width: 95%;
+    }
+}
+
+
+/* Animation d’apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style du formulaire */
+.article-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Navigation entre les étapes */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.form-navigation button {
+    background: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: background 0.2s;
+}
+
+.form-navigation .nav-button:hover {
+    background: black;
+}
+
+/* Aperçu de l'image */
+.image-preview {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .article-form-container {
+        width: 95%;
+    }
+}

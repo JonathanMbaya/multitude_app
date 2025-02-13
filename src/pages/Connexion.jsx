@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Links } from 'react-router-dom';
 import FormLogin from '../components/FormLogin/FormLogin';
 import FormSignUp from '../components/FormSignUp/FormSignUp';
 import { ChevronLeft } from 'lucide-react';
@@ -23,13 +23,14 @@ function Connexion() {
 
             {/* Onglets Connexion/Inscription */}
             <div className="tabs">
+
                 <motion.button 
                     className={activeTab === "login" ? "active" : ""}
                     onClick={() => setActiveTab("login")}
                     whileHover={{ scale: 1.1 }}
                     style={{color: 'black'}}
                 >
-                    Se connecter
+                        Se connecter
                 </motion.button>
 
                 <motion.button 

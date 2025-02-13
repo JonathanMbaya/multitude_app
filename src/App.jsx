@@ -5,6 +5,7 @@ import Single from "./pages/Single";
 import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 import Reco from "./pages/Reco";
+import AdminHome from "./pages/AdminHome";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Route path="/reco/multicinema" element={<Reco/>} />
         <Route path="/reco/multilecture" element={<Reco/>} />
         <Route path="/contact" element={<Contact/>} />
-        <Route path="/admin/secret" element={<Connexion/>} />
+        <Route path="/admin/secret-portal" element={<Connexion/>} />
+        <Route path="/admin" element={<AdminHome/>} />
+
       </Routes>
     </Router>
   );

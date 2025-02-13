@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Lock } from "lucide-react";
 import "./FormLogin.css";
@@ -70,7 +71,9 @@ function FormLogin() {
         </div>
 
         <motion.button type="submit">
-          Se connecter
+          <Link>
+            Se connecter
+          </Link>
         </motion.button>
 
       </motion.form>

@@ -1,0 +1,45 @@
+.admin-container {
+  margin-top: 2rem;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headHomeAdmin{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+}
+
+.admin-actions {
+  margin-bottom: 20px;
+}
+
+.admin-actions button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+  .headHomeAdmin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+  }
+
+  .admin-container {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
