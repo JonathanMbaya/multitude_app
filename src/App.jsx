@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 import Reco from "./pages/Reco";
 import AdminHome from "./pages/AdminHome";
+import AdminLibrary from "./pages/AdminLibrary";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/admin/login" element={<Connexion/>} />
         <Route path="/admin" element={<AdminHome/>} />
-
+        <Route path="/admin/library" element={<AdminLibrary/>} />
       </Routes>
     </Router>
   );

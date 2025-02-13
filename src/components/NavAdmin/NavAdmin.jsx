@@ -18,7 +18,7 @@ function NavAdmin() {
   
         <nav className="navbar">
             {/* Logo */}
-            <a href="/">
+            <a href="/admin">
                 <img className="logo-short" src="/181.png" alt="Logo de Multitude" />
             </a>
   
@@ -26,7 +26,7 @@ function NavAdmin() {
             <ul className={`ul-onglet ${isOpen ? "open" : ""}`}>
                 {onglets.map((onglet, index) => (
                 <li key={index}>
-                    <Link to={`/category`} onClick={() => setIsOpen(false)}>
+                    <Link to={`/admin/library`} onClick={() => setIsOpen(false)}>
                     {onglet}
                     </Link>
                 </li>
