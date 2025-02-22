@@ -99,16 +99,23 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
+        margin-bottom: 2.5rem;
     }
     .post-text-home{
+        margin: 0rem;
+        width: 400px;
+    }
+
+    .post-text-home h2{
         margin: 0rem;
     }
 
     .post-article-home img {
-        width: 100%;
+        width: 400px;
         height: 25vh;
         object-fit: cover;
         cursor: pointer;
+        margin-bottom: 0rem;
     }
 
 }
