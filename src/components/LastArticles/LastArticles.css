@@ -92,6 +92,10 @@
 @media screen and (max-width: 768px) {
 
     .latest{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: .5rem;
     }
     .post-article-home{
@@ -100,10 +104,13 @@
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 2.5rem;
+        max-width: 380px;
+        width: 380px;
     }
     .post-text-home{
         margin: 0rem;
-        width: 400px;
+        max-width: 380px;
+        width: 100%;
     }
 
     .post-text-home h2{
@@ -111,7 +118,8 @@
     }
 
     .post-article-home img {
-        width: 400px;
+        max-width: 380px;
+        width: 380px;
         height: 25vh;
         object-fit: cover;
         cursor: pointer;
