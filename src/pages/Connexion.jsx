@@ -28,7 +28,6 @@ function Connexion() {
                     className={activeTab === "login" ? "active" : ""}
                     onClick={() => setActiveTab("login")}
                     whileHover={{ scale: 1.1 }}
-                    style={{color: 'black'}}
                 >
                         Se connecter
                 </motion.button>
@@ -37,15 +36,14 @@ function Connexion() {
                     className={activeTab === "signup" ? "active" : ""}
                     onClick={() => setActiveTab("signup")}
                     whileHover={{ scale: 1.1 }}
-                    style={{color: 'black'}}
                 >
                     S'inscrire
                 </motion.button>
             </div>
 
             {/* Affichage du formulaire actif */}
-            <div className="form-container">
-                {activeTab === "login" ? <FormLogin /> : <FormSignUp />}
+            <div>
+                {activeTab === "login" ? <FormLogin /> : ''}
             </div>
         </main>
     );

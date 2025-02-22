@@ -1,77 +1,108 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import { RotateCw } from 'lucide-react';
-import './Category.css';
-
-const articles = [
-  {
-    id: 1,
-    category: "Musique",
-    title: "Titre de l'article",
-    excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dolorum incidunt quod sint quaerat accusamus...",
-    time: "3 mins de lecture",
-    date: "01 Janvier 2024",
-    img: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    category: "Cinéma",
-    title: "Un autre article",
-    excerpt:
-      "Découvrez les dernières sorties cinéma et nos recommandations pour cette semaine...",
-    time: "5 mins de lecture",
-    date: "15 Février 2024",
-    img: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop",
-  },
-];
+import "./Category.css";
 
 function Category() {
-  return (
-    <>
-      <Navbar />
-      <main className="category-page">
-        <h1 bannerh1>Musique</h1>
+    const { id } = useParams();  // Récupère la catégorie depuis l'URL
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-        <div className="articles-container">
-          {articles.map((article, index) => (
-            <motion.div
-              key={article.id}
-              className="post-article"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.3 }}
-            >
-              <img src={article.img} alt={article.title} />
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles/category/${id}`);
+                setArticles(response.data);
+            } catch (err) {
+                console.error("Erreur lors de la récupération des articles :", err);
+                setError("Impossible de charger les articles.");
+            } finally {
+                setLoading(false);
+            }
+        };
 
-              <div className="post-text">
-                <p><span>{article.category}</span></p>
-                <h2>{article.title}</h2>
-                <p>{article.excerpt}</p>
-                <p><span>{article.time}</span></p>
-                <p><span>{article.date}</span></p>
-              </div>
+        fetchArticles();
+    }, [id]);  // Exécute l'effet lorsque la catégorie change
 
-              <hr />
+    // Fonction pour obtenir le nom de la catégorie en fonction de son ID
+    const getCategoryName = (categoryId) => {
+      const categories = {
+        5: "Littérature",
+        6: "Musique",
+        7: "Cinéma",
+        8: "Culture & Société",
+      };
+      return categories[categoryId] || null;
+    };
 
-            </motion.div>
+    if (loading) return <p>Chargement...</p>;
+    if (error) return <p style={{ color: "red" }}>{error}</p>;
+    if (articles.length === 0) return <p>Aucun article trouvé pour cette catégorie.</p>;
 
-          ))}
-        </div>
+    return (
+        <>
+          <Navbar />
+            <main className="category-page">
+                <h1>{getCategoryName (id)}</h1>
 
-        <motion.button
-          className="btn-more"
-        >
-          <RotateCw/>  Voir plus
-        </motion.button>
+                <div className="articles-container">
+                    {articles.map((article, index) => (
 
-        <hr />
-      </main>
-      <Footer />
-    </>
-  );
+                        <motion.div
+                            key={article.id}
+                            className="post-article"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: index * 0.3 }}
+                        >
+                            
+                            <img src={article.image} alt={article.title} />
+
+                            <div className="post-text">
+                                <span className="text-category">{getCategoryName (id)}</span>
+                                <h2>{article.titre}</h2>
+                                <p>{article.extrait}</p>
+                                <p className="text-mini">
+                                  <span>{article.readingTime}2 mins de lecture</span>
+                                  <span>
+                                    {article.datePublication
+                                      ? new Date(
+                                          article.datePublication
+                                              .replace(" ", "T") // Remplace l'espace par "T"
+                                      ).toLocaleString("fr-FR", { 
+                                          dateStyle: "short", 
+                                          timeStyle: "short" 
+                                      }).replace(":", "H") // Remplace l'espace par "T"
+                                      : "Date inconnue"
+                                    }
+                                  </span>
+                                </p>
+                                <Link to={`/article/${article.id}`}>
+                                  <button style={{padding: '1rem'}}>Lire l'article</button>
+                                </Link>
+                            </div>
+
+                            <hr />
+                        </motion.div>
+                        
+                    ))}
+                </div>
+
+                <motion.button className="btn-more">
+                    <RotateCw /> Voir plus
+                </motion.button>
+
+                <hr />
+            </main>
+            <Footer />
+        </>
+    );
 }
 
 export default Category;

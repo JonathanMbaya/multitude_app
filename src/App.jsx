@@ -7,23 +7,33 @@ import Connexion from "./pages/Connexion";
 import Reco from "./pages/Reco";
 import AdminHome from "./pages/AdminHome";
 import AdminLibrary from "./pages/AdminLibrary";
+import { AuthProvider } from "./context/AuthContext";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
+
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/article" element={<Single/>} />
-        <Route path="/category" element={<Category/>} />
-        <Route path="/reco/multimusique" element={<Reco/>} />
-        <Route path="/reco/multicinema" element={<Reco/>} />
-        <Route path="/reco/multilecture" element={<Reco/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/admin/login" element={<Connexion/>} />
-        <Route path="/admin" element={<AdminHome/>} />
-        <Route path="/admin/library" element={<AdminLibrary/>} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/article/:id" element={<Single />} />
+          <Route path="/category/:id" element={<Category />} />
+          <Route path="/reco/multimusique" element={<Reco />} />
+          <Route path="/reco/multicinema" element={<Reco />} />
+          <Route path="/reco/multilecture" element={<Reco />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/login" element={<Connexion />} />
+
+          {/* Routes protégées */}
+          <Route element={<AdminRoute/>}>
+            <Route path="/admin/home" element={<AdminHome />} />
+            <Route path="/admin/library" element={<AdminLibrary />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
+
   );
 }
 
