@@ -8,28 +8,27 @@ function NavAdmin() {
     const [isOpen, setIsOpen] = useState(false);
     const { logout } = useAuth();  // Récupération de la fonction logout
 
-    const onglets = [
-      "Ton Journal",
-      "La bibliothèque"    
-    ];
   
     return (
       <>
         <nav className="navbar">
             {/* Logo */}
-            <a href="/admin">
+            <a href="/admin/home">
                 <img className="logo-short" src="/181.png" alt="Logo de Multitude" />
             </a>
   
             {/* Menu de navigation */}
-            <ul className={`ul-onglet ${isOpen ? "open" : ""}`}>
-                {onglets.map((onglet, index) => (
-                <li key={index}>
-                    <Link to={`/admin/library`} onClick={() => setIsOpen(false)}>
-                    {onglet}
+            <ul className="ul-onglet">
+                <li   className={`ul-onglet ${isOpen ? "open" : ""}`}>
+                    <Link to={`/admin/home`} onClick={() => setIsOpen(false)}>
+                    Le journal
                     </Link>
                 </li>
-                ))}
+                <li className={`ul-onglet ${isOpen ? "open" : ""}`}>
+                    <Link to={`/admin/library`} onClick={() => setIsOpen(false)}>
+                    La bibliothèque
+                    </Link>
+                </li>
             </ul>
   
             {/* Bouton de déconnexion */}

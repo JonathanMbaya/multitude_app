@@ -5,18 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 import "./ArticleForm.css";
 
-function ArticleForm({ onClose }) {
+function ArticleEditForm({ article, onClose }) {
   const { user } = useAuth();
 
   const [formData, setFormData] = useState({
-    titre: "",
-    extrait: "",
-    description: "",
-    category: "",
-    image: "",
-    video: "",
-    trend: false,
-    published_by: user?.id || "",
+    titre: article?.titre || "",
+    extrait: article?.extrait || "",
+    description: article?.description || "",
+    category: article?.category || "",
+    image: article?.image || "",
+    video: article?.video || "",
+    trend: article?.trend || false,
+    published_by: article?.published_by || user?.id || "",
   });
 
   const [categories, setCategories] = useState([]);
@@ -40,15 +40,15 @@ function ArticleForm({ onClose }) {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/articles`,
+      await axios.put(
+        `${import.meta.env.VITE_API_BASE_URL}/articles/${article.id}`,
         formData,
         { headers: { "Content-Type": "application/json" } }
       );
       onClose();
     } catch (error) {
       console.error("Erreur:", error.response?.data || error.message);
-      alert(`Erreur: ${error.response?.data?.message || "Impossible de créer l'article."}`);
+      alert(`Erreur: ${error.response?.data?.message || "Impossible de modifier l'article."}`);
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,7 @@ function ArticleForm({ onClose }) {
           <CircleX />
         </button>
         <form className="article-form" onSubmit={handleSubmit}>
-          <h2 style={{ marginBottom: "2rem" }}>Créer un article</h2>
+          <h2 style={{ marginBottom: "2rem" }}>Modifier l'article</h2>
 
           <AnimatePresence mode="wait">
             {step === 1 && (
@@ -137,7 +137,7 @@ function ArticleForm({ onClose }) {
             )}
             {step === 3 && (
               <button type="submit" disabled={loading}>
-                {loading ? "Publication..." : "Publier"}
+                {loading ? "Modification..." : "Modifier"}
               </button>
             )}
           </div>
@@ -147,4 +147,4 @@ function ArticleForm({ onClose }) {
   );
 }
 
-export default ArticleForm;
+export default ArticleEditForm;
