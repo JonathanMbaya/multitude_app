@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Search, Menu, X, ChevronDown, ChevronUp, Instagram } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons"; 
-import axios from "axios"; 
+import axios from "axios"; // Import d'axios
 import "./Navbar.css";
 
 function Navbar() {
@@ -11,8 +11,9 @@ function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-  const [articles, setArticles] = useState([]); 
+  const [articles, setArticles] = useState([]); // Pour stocker les articles récupérés de l'API
 
+  // Correspondance entre les noms et les ID des catégories
   const categories = {
     5: "Littérature",
     6: "Musique",
@@ -20,31 +21,38 @@ function Navbar() {
     8: "Culture & Société",
   };
 
+  // Convertit un nom de catégorie en ID
   const getCategoryId = (categoryName) => {
     return Object.keys(categories).find((key) => categories[key] === categoryName);
   };
 
+  // Liste des noms de catégories
   const categoryNames = Object.values(categories);
+
   const sousMenuReco = ["multimusique", "multicinema", "multilecture"];
 
-  // Fonction pour récupérer les articles en fonction de la recherche
-  useEffect(() => {
-    const fetchArticles = async () => {
-      if (!query.trim()) {
-        setArticles([]); // Vider la liste si l'utilisateur supprime le texte
-        return;
-      }
-      try {
-        const response = await axios.get(`https://backmultitude-production.up.railway.app/search?q=${query}`);
-        setArticles(response.data); 
-      } catch (error) {
-        console.error("Erreur lors de la récupération des articles:", error);
-      }
-    };
+// Fonction pour récupérer les articles depuis l'API
+const fetchArticles = async () => {
+  try {
+    const response = await axios.get(`http://localhost:5000/articles/search`);
+    setArticles(response.data); // Stocke la liste complète des articles
+  } catch (error) {
+    console.error("Erreur lors de la récupération des articles:", error);
+  }
+};
 
-    const timeoutId = setTimeout(fetchArticles, 300); // Délais pour éviter trop de requêtes
-    return () => clearTimeout(timeoutId); // Nettoyer si l'utilisateur tape rapidement
-  }, [query]); // Appeler cette fonction à chaque changement de `query`
+// Filtrer les articles en fonction de la requête
+const filteredArticles = Array.isArray(articles)
+  ? articles.filter(article =>
+      article.titre.toLowerCase().includes(query.toLowerCase())
+    ).slice(0, 6) // Limiter à 6 articles
+  : [];
+
+
+  // Appeler la fonction fetchArticles quand le composant est monté
+  useEffect(() => {
+    fetchArticles();
+  }, []);
 
   return (
     <>
@@ -137,17 +145,13 @@ function Navbar() {
         {/* Résultats de recherche */}
         {query && (
           <div className="search-results">
-            {articles.length > 0 ? (
-              articles.map((article) => (
-                <Link key={article.id} to={`/article/${article.id}`} className="search-result-item">
-                  <div className="card-search">
-                    {article.titre}
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p className="no-results">Aucun article trouvé</p>
-            )}
+            {filteredArticles.map((article) => (
+              <Link key={article.id} to={`/article/${article.id}`} className="search-result-item">
+                <div className="card-search">
+                  {article.titre}
+                </div>
+              </Link>
+            ))}
           </div>
         )}
       </div>
