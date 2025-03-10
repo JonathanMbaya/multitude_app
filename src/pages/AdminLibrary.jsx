@@ -99,7 +99,6 @@ function AdminLibrary() {
                 <>
                   <p style={{color: 'black'}}>Auteur: {item.auteur}</p>
                   <p style={{color: 'black'}}>Publication: {new Date(item.datePublication).toLocaleDateString("fr-FR")}</p>
-                  <p style={{color: 'black'}}>Bande-Annonce: <a href={item.bandeAnnonce} target="_blank" rel="noopener noreferrer">{item.bandeAnnonce}</a></p>
                 </>
               )}
 
@@ -185,6 +184,9 @@ function ItemForm({ type, onClose, onSubmit, editingItem }) {
           {type === "livres" && <>
             <label>Auteur</label>
             <input type="text" name="auteur" value={formData.auteur} onChange={handleChange} required />
+
+            <label>Image</label>
+            <input type="text" name="image" value={formData.cover} onChange={handleChange} required />
 
             <label>Date de publication</label>
             <input type="date" name="datePublication" value={formData.datePublication} onChange={handleChange} required />

@@ -4,7 +4,7 @@
     align-items: center;
     background-color: white;
     padding: 1rem;
-    position: relative;
+    position: fixed;
   }
   
   .logo-short {
@@ -52,26 +52,28 @@
   /* Barre de recherche */
   .search-bar {
     position: absolute;
-    z-index: 1000;
-    top: -50px;
+    z-index: 10000;
+    top: 0;
     left: 0;
     width: 100%;
     background: white;
     padding: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     transition: top 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
   }
   
   .search-bar.open {
-    top: 90px;
+    position: absolute;
+    z-index: 10000;
     opacity: 1;
     visibility: visible;
-    height: 40vh;
+    height: 60vh;
   }
   
   .search-bar input {
@@ -88,6 +90,23 @@
     font-size: 18px;
     margin-left: 10px;
     cursor: pointer;
+  }
+
+  .action-search, .search-results{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card-search, .card-search a{
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .icon-network {
