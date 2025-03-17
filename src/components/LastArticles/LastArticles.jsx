@@ -26,7 +26,7 @@ function LastArticles() {
         // Assure un temps minimum d'affichage du loader
         const timeout = setTimeout(() => {
             fetchLatestArticles().finally(() => setLoading(false));
-        }, 2000);
+        }, 10);
     
         return () => clearTimeout(timeout);
     }, []);

@@ -25,7 +25,7 @@ function BannerHome() {
     // Assure un temps minimum d'affichage du loader
     const timeout = setTimeout(() => {
         fetchTrendingArticles().finally(() => setLoading(false));
-        }, 2000); // ⏳ Affichage du loader pendant au moins 2s
+        }, 10); // ⏳ Affichage du loader pendant au moins 2s
     
         return () => clearTimeout(timeout); // Nettoie le timeout si le composant est démonté
         
