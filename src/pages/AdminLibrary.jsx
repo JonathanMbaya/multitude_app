@@ -92,14 +92,13 @@ function AdminLibrary() {
             <div key={item.id} className="item-card">
               <h3 style={{color: 'black'}}>{item.titre}</h3>
               {activeTab === "films" ? (
-                <>
                   <p style={{color: 'black'}}>Sortie: {new Date(item.dateSortie).toLocaleDateString("fr-FR")}</p>
-                </>
+
               ) : (
-                <>
+                <div>
                   <p style={{color: 'black'}}>Auteur: {item.auteur}</p>
                   <p style={{color: 'black'}}>Publication: {new Date(item.datePublication).toLocaleDateString("fr-FR")}</p>
-                </>
+                </div>
               )}
 
               <div className="actions">
