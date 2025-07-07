@@ -1,183 +1,180 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 1rem;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  position: relative;
+}
+
+.logo-short {
+  height: 50px;
+}
+
+.ul-onglet {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  font-family: "Lacquer", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ul-onglet li {
+  color: black;
+}
+
+.ul-onglet a {
+  color: black;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.ul-onglet a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Icône menu burger */
+.burger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Icône de recherche */
+.search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  color: black !important;
+}
+
+.search-icon p {
+  padding-right: 5rem;
+}
+
+.search-icon li {
+  font-family: "Lacquer", serif;
+  padding-right: 1rem;
+}
+
+/* Barre de recherche */
+
+.close-search {
+  background: none;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.icon-network {
+  position: fixed;
+  right: 4rem;
+  bottom: 30rem;
+}
+
+.icons,
+.icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: white;
+  color: black;
+}
+
+/* ✅ Style pour le menu déroulant */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.dropdown-menu li {
+  padding: 8px 15px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .burger-menu {
+    display: block;
   }
-  
-  .logo-short {
-    height: 50px;
-  }
-  
+
   .ul-onglet {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    display: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .ul-onglet.open {
     display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    font-family: "Lacquer", serif;
-    font-weight: 400;
-    font-style: normal;
+    position: absolute;
+    z-index: 2000;
   }
 
   .ul-onglet li {
-    color: black;
-  }
-  
-  .ul-onglet a {
-    color: black;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
-  .ul-onglet a:hover {
-    color: red;
-    text-decoration: underline;
-  }
-  
-  /* Icône menu burger */
-  .burger-menu {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Icône de recherche */
-  .search-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    cursor: pointer;
-    color: black !important;
-  }
-
-  .search-icon p {
-    padding-right: 5rem;
-
-  }
-
-  .search-icon li{
-      font-family: "Lacquer", serif;
-      padding-right: 1rem;
-
-  }
-  
-  /* Barre de recherche */
-  
-  
-  .close-search {
-    background: none;
-    border: none;
-    font-size: 18px;
-    margin-left: 10px;
-    cursor: pointer;
+    margin: 10px 0;
   }
 
   .icon-network {
     position: fixed;
-    right: 4rem;
-    bottom: 30rem;
+    z-index: 2000;
+    right: 0.5rem;
+    bottom: 5rem;
   }
 
-  .icons, .icons a{
+  .icons,
+  .icons a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .5rem;
+    padding: 0.5rem;
     margin: 1rem;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border-radius: 100%;
     background-color: white;
     color: black;
   }
-
-  /* ✅ Style pour le menu déroulant */
-.dropdown {
-    position: relative;
-  }
-  
-  .dropdown-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    z-index: 1000;
-    top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    list-style: none;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    min-width: 200px;
-  }
-  
-  .dropdown-menu li {
-    padding: 8px 15px;
-    transition: background 0.3s ease-in-out;
-  }
-
-  
-
-  /* RESPONSIVE */
-  @media screen and (max-width: 768px) {
-    .burger-menu {
-      display: block;
-    }
-  
-    .ul-onglet {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background: white;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
-      display: none;
-      transition: all 0.3s ease-in-out;
-    }
-  
-    .ul-onglet.open {
-      display: flex;
-      position: absolute;
-      z-index: 2000;
-    }
-  
-    .ul-onglet li {
-      margin: 10px 0;
-    }
-
-    .icon-network {
-        position: fixed;
-        z-index: 2000;
-        right: .5rem;
-        bottom: 5rem;
-    }
-
-    .icons, .icons a{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: .5rem;
-        margin: 1rem;
-        height: 30px;
-        width: 30px;
-        border-radius: 100%;
-        background-color: white;
-        color: black;
-      }
-  }
+}

@@ -8,7 +8,7 @@ function FormSignUp() {
     nom: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -22,24 +22,26 @@ function FormSignUp() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="signup-container"
-      initial={{ opacity: 0, y: 50 }} 
-      animate={{ opacity: 1, y: 0 }} 
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.form 
+      <motion.form
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, scale: 0.9 }} 
-        animate={{ opacity: 1, scale: 1 }} 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <h1 style={{color: 'black'}}>Créer un compte</h1>
+        <h1 style={{ color: "black" }}>Créer un compte</h1>
         <p>Inscrivez-vous pour accéder à nos contenus exclusifs.</p>
 
         <div className="form-group">
-          <label htmlFor="nom"><User size={20} /> Nom</label>
-          <input 
+          <label htmlFor="nom">
+            <User size={20} /> Nom
+          </label>
+          <input
             type="text"
             id="nom"
             name="nom"
@@ -50,8 +52,10 @@ function FormSignUp() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email"><Mail size={20} /> Email</label>
-          <input 
+          <label htmlFor="email">
+            <Mail size={20} /> Email
+          </label>
+          <input
             type="email"
             id="email"
             name="email"
@@ -62,8 +66,10 @@ function FormSignUp() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password"><Lock size={20} /> Mot de passe</label>
-          <input 
+          <label htmlFor="password">
+            <Lock size={20} /> Mot de passe
+          </label>
+          <input
             type="password"
             id="password"
             name="password"
@@ -74,8 +80,10 @@ function FormSignUp() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="confirmPassword"><Lock size={20} /> Confirmer le mot de passe</label>
-          <input 
+          <label htmlFor="confirmPassword">
+            <Lock size={20} /> Confirmer le mot de passe
+          </label>
+          <input
             type="password"
             id="confirmPassword"
             name="confirmPassword"
@@ -85,10 +93,7 @@ function FormSignUp() {
           />
         </div>
 
-        <motion.button 
-          type="submit"
-          whileHover={{ scale: 1.05 }}
-        >
+        <motion.button type="submit" whileHover={{ scale: 1.05 }}>
           S'inscrire
         </motion.button>
       </motion.form>

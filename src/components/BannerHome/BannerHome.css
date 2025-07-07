@@ -1,145 +1,147 @@
 .bannerhome {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    gap: 10px;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  gap: 10px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .bannerh1 {
-    font-size: 54px;
-    position: absolute;
-    top: -40px;
-    left: -20px;
+  font-size: 54px;
+  position: absolute;
+  top: -40px;
+  left: -20px;
 }
 
 /* Les sections principales */
-.part, .partOne {
-    position: relative;
-    width: 50%;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.part,
+.partOne {
+  position: relative;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Images principales */
 .partOne img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 /* Images secondaires */
 .part img {
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-    cursor: pointer;
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 /* Conteneur des images secondaires */
 .secondImage {
-    position: relative;
-    width: 100%;
-    height: 25vh;
-    overflow: hidden;
-    margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  height: 25vh;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .secondImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Effet d'apparition du texte avec un fond dégradé */
 .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .overlay h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .overlay p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
 /* Bouton "Voir plus" */
 .overlay button {
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 8px 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: 30%;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 8px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 30%;
 }
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 768px) {
-    .bannerhome {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: .5rem;
-    }
+  .bannerhome {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0.5rem;
+  }
 
-    .bannerh1 {
-        font-size: 54px;
-        position: absolute;
-        top: -40px;
-        left: 0px;
-    }
+  .bannerh1 {
+    font-size: 54px;
+    position: absolute;
+    top: -40px;
+    left: 0px;
+  }
 
-    .part, .partOne {
-        width: 100%;
-        height: auto;
-    }
+  .part,
+  .partOne {
+    width: 100%;
+    height: auto;
+  }
 
-    .part img,
-    .partOne img {
-        height: auto;
-    }
+  .part img,
+  .partOne img {
+    height: auto;
+  }
 
-    .secondImage {
-        height: 30vh;
-    }
+  .secondImage {
+    height: 30vh;
+  }
 
-    .overlay {
-        padding: 15px;
-    }
+  .overlay {
+    padding: 15px;
+  }
 
-    .overlay h3 {
-        font-size: 1rem;
-    }
+  .overlay h3 {
+    font-size: 1rem;
+  }
 
-    .overlay p {
-        font-size: 0.8rem;
-    }
+  .overlay p {
+    font-size: 0.8rem;
+  }
 
-    .overlay button {
-        width: 50%;
-    }
+  .overlay button {
+    width: 50%;
+  }
 }

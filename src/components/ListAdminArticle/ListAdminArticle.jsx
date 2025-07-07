@@ -19,7 +19,9 @@ function ListAdminArticle() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/categories`,
+        );
         setCategories(response.data);
       } catch (error) {
         console.error("Erreur lors du chargement des catégories:", error);
@@ -31,7 +33,9 @@ function ListAdminArticle() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles/all`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/articles/all`,
+        );
         setArticles(response.data);
       } catch (error) {
         console.error("Erreur lors du chargement des articles :", error);
@@ -43,7 +47,9 @@ function ListAdminArticle() {
   const handleDelete = async (id) => {
     if (window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?")) {
       try {
-        await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/articles/${id}`);
+        await axios.delete(
+          `${import.meta.env.VITE_API_BASE_URL}/articles/${id}`,
+        );
         setArticles(articles.filter((article) => article.id !== id));
       } catch (error) {
         console.error("Erreur lors de la suppression de l'article :", error);
@@ -78,7 +84,9 @@ function ListAdminArticle() {
       }
 
       setArticles((prev) =>
-        isEditing ? prev.map((a) => (a.id === articleData.id ? articleData : a)) : [...prev, articleData]
+        isEditing
+          ? prev.map((a) => (a.id === articleData.id ? articleData : a))
+          : [...prev, articleData],
       );
 
       setShowForm(false);
@@ -91,7 +99,10 @@ function ListAdminArticle() {
   return (
     <div className="admin-cards-container">
       <div className="filters">
-        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+        <select
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value)}
+        >
           <option value="">Toutes les catégories</option>
           {categories.map((cat) => (
             <option key={cat.id} value={cat.id}>
@@ -99,13 +110,23 @@ function ListAdminArticle() {
             </option>
           ))}
         </select>
-        <input type="date" value={dateFilterStart} onChange={(e) => setDateFilterStart(e.target.value)} />
-        <input type="date" value={dateFilterEnd} onChange={(e) => setDateFilterEnd(e.target.value)} />
-        <button onClick={() => {
-          setCategoryFilter("");
-          setDateFilterStart("");
-          setDateFilterEnd("");
-        }}>
+        <input
+          type="date"
+          value={dateFilterStart}
+          onChange={(e) => setDateFilterStart(e.target.value)}
+        />
+        <input
+          type="date"
+          value={dateFilterEnd}
+          onChange={(e) => setDateFilterEnd(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            setCategoryFilter("");
+            setDateFilterStart("");
+            setDateFilterEnd("");
+          }}
+        >
           Réinitialiser
         </button>
         <button className="add-button" onClick={handleAdd}>
@@ -116,14 +137,24 @@ function ListAdminArticle() {
       <div className="admin-cards-wrapper">
         {articles.map((article) => (
           <div key={article.id} className="article-card">
-            <p className="category">{categories.find(c => c.id === article.category)?.name || "Sans catégorie"}</p>
+            <p className="category">
+              {categories.find((c) => c.id === article.category)?.name ||
+                "Sans catégorie"}
+            </p>
             <div className="card-header">
-              <h3 style={{color: 'black'}}>{article.titre}</h3>
-              <Ellipsis className="ellipsis-icon" onClick={() => setMenuOpen(menuOpen === article.id ? null : article.id)} />
+              <h3 style={{ color: "black" }}>{article.titre}</h3>
+              <Ellipsis
+                className="ellipsis-icon"
+                onClick={() =>
+                  setMenuOpen(menuOpen === article.id ? null : article.id)
+                }
+              />
               {menuOpen === article.id && (
                 <div className="dropdown-menu">
                   <button onClick={() => handleEdit(article)}>Modifier</button>
-                  <button onClick={() => handleDelete(article.id)}>Supprimer</button>
+                  <button onClick={() => handleDelete(article.id)}>
+                    Supprimer
+                  </button>
                 </div>
               )}
             </div>
@@ -140,9 +171,16 @@ function ListAdminArticle() {
           </button>
 
           {editingArticle === "ajouter" ? (
-            <ArticleForm onClose={() => setShowForm(false)} onSubmit={handleSubmit} />
+            <ArticleForm
+              onClose={() => setShowForm(false)}
+              onSubmit={handleSubmit}
+            />
           ) : (
-            <ArticleEditForm article={editingArticle} onClose={() => setShowForm(false)} onSubmit={handleSubmit} />
+            <ArticleEditForm
+              article={editingArticle}
+              onClose={() => setShowForm(false)}
+              onSubmit={handleSubmit}
+            />
           )}
         </div>
       )}

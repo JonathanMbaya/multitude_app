@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.headHomeAdmin{
+.headHomeAdmin {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,6 @@
   border: none;
   cursor: pointer;
 }
-
 
 @media screen and (max-width: 600px) {
   .headHomeAdmin {
@@ -42,4 +41,3 @@
     justify-content: center;
   }
 }
-

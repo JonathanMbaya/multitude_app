@@ -10,7 +10,6 @@ import AdminLibrary from "./pages/AdminLibrary";
 import { AuthProvider } from "./context/AuthContext";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 
-
 function App() {
   return (
     <AuthProvider>
@@ -26,14 +25,13 @@ function App() {
           <Route path="/admin/login" element={<Connexion />} />
 
           {/* Routes protégées */}
-          <Route element={<AdminRoute/>}>
+          <Route element={<AdminRoute />}>
             <Route path="/admin/home" element={<AdminHome />} />
             <Route path="/admin/library" element={<AdminLibrary />} />
           </Route>
         </Routes>
       </Router>
     </AuthProvider>
-
   );
 }
 
