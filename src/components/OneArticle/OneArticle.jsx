@@ -5,7 +5,6 @@ import "./OneArticle.css";
 
 function OneArticle() {
   const { id } = useParams();
-  // ✅ Debug
 
   const [article, setArticle] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
