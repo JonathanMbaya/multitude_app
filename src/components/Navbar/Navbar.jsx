@@ -34,7 +34,7 @@ function Navbar() {
 // Fonction pour récupérer les articles depuis l'API
 const fetchArticles = async () => {
   try {
-    const response = await axios.get(`http://localhost:5000/articles/search`);
+    const response = await axios.get("http://localhost:5000/articles/search");
     setArticles(response.data); // Stocke la liste complète des articles
   } catch (error) {
     console.error("Erreur lors de la récupération des articles:", error);
