@@ -9,38 +9,36 @@ function NavAdmin() {
   const { logout } = useAuth(); // Récupération de la fonction logout
 
   return (
-
     <nav className="navbar">
-    {/* Logo */}
-    <a href="/admin/home">
+      {/* Logo */}
+      <a href="/admin/home">
         <img className="logo-short" src="/181.png" alt="Logo de Multitude" />
-    </a>
+      </a>
 
-    {/* Menu de navigation */}
-    <ul className="ul-onglet">
+      {/* Menu de navigation */}
+      <ul className="ul-onglet">
         <li className={`ul-onglet ${isOpen ? "open" : ""}`}>
-        <Link to={"/admin/home"} onClick={() => setIsOpen(false)}>
+          <Link to={"/admin/home"} onClick={() => setIsOpen(false)}>
             Le journal
-        </Link>
+          </Link>
         </li>
         <li className={`ul-onglet ${isOpen ? "open" : ""}`}>
-        <Link to={"/admin/library"} onClick={() => setIsOpen(false)}>
+          <Link to={"/admin/library"} onClick={() => setIsOpen(false)}>
             La bibliothèque
-        </Link>
+          </Link>
         </li>
-    </ul>
+      </ul>
 
-    {/* Bouton de déconnexion */}
-    <div className="search-icon" onClick={logout}>
+      {/* Bouton de déconnexion */}
+      <div className="search-icon" onClick={logout}>
         <li>Se déconnecter</li> <LogOut color="black" />
-    </div>
+      </div>
 
-    {/* Icône menu burger pour mobile */}
-    <button className="burger-menu" onClick={() => setIsOpen(!isOpen)}>
+      {/* Icône menu burger pour mobile */}
+      <button className="burger-menu" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={28} /> : <Menu size={28} />}
-    </button>
+      </button>
     </nav>
-
   );
 }
 
