@@ -5,7 +5,7 @@ import "./OneArticle.css";
 
 function OneArticle() {
   const { id } = useParams();
-  console.log("ID récupéré :", id); // ✅ Debug
+   // ✅ Debug
 
   const [article, setArticle] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
