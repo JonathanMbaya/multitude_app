@@ -19,7 +19,7 @@ function FormContact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Données du formulaire:", formData);
+
     alert("Formulaire envoyé !");
   };
 

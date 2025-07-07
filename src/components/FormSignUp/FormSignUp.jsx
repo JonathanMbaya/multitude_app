@@ -17,7 +17,7 @@ function FormSignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Données du formulaire:", formData);
+
     alert("Inscription réussie !");
   };
 

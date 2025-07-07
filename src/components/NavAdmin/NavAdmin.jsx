@@ -19,12 +19,12 @@ function NavAdmin() {
         {/* Menu de navigation */}
         <ul className="ul-onglet">
           <li className={`ul-onglet ${isOpen ? "open" : ""}`}>
-            <Link to={`/admin/home`} onClick={() => setIsOpen(false)}>
+            <Link to={"/admin/home"} onClick={() => setIsOpen(false)}>
               Le journal
             </Link>
           </li>
           <li className={`ul-onglet ${isOpen ? "open" : ""}`}>
-            <Link to={`/admin/library`} onClick={() => setIsOpen(false)}>
+            <Link to={"/admin/library"} onClick={() => setIsOpen(false)}>
               La bibliothèque
             </Link>
           </li>
