@@ -35,12 +35,13 @@ function LectureList() {
         {books.map((book, index) => (
           <div key={book.id} className="book-card">
             <span className="book-number">{index + 1}</span>
-            <img 
-              src={book.cover} 
-              alt={book.title} 
-              className="book-image"
-              onClick={() => setSelectedBook(book)}
-            />
+            <div onClick={() => setSelectedBook(book)}>
+              <img 
+                src={book.cover} 
+                alt={book.title} 
+                className="book-image"
+              />
+            </div>
             <h3>{book.title}</h3>
           </div>
         ))}

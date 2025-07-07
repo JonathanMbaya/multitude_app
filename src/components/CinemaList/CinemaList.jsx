@@ -41,12 +41,13 @@ function CinemaList() {
         {!loading && !error && movies.map((movie, index) => (
           <div key={movie.id} className="movie-card">
             <span className="movie-number">{index + 1}</span>
-            <img 
-              src={movie.cover} 
-              alt={movie.titre} 
-              className="movie-image"
-              onClick={() => setSelectedMovie(movie)}
-            />
+            <div onClick={() => setSelectedMovie(movie)}>
+              <img 
+                src={movie.cover} 
+                alt={movie.titre} 
+                className="movie-image"
+              />
+            </div>
             <h3>{movie.titre}</h3>
           </div>
         ))}
