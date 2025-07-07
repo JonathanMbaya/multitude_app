@@ -9,7 +9,7 @@ function FormLogin() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { login } = useAuth();  // Utilise le contexte
+  const { login } = useAuth(); // Utilise le contexte
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +20,7 @@ function FormLogin() {
     setError("");
 
     try {
-      await login(formData);  // Met à jour le contexte global
+      await login(formData); // Met à jour le contexte global
       navigate("/admin/home"); // Redirection après connexion
     } catch (err) {
       console.error(err);
@@ -29,28 +29,30 @@ function FormLogin() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="login-container"
-      initial={{ opacity: 0, y: 50 }} 
-      animate={{ opacity: 1, y: 0 }} 
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.form 
+      <motion.form
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, scale: 0.9 }} 
-        animate={{ opacity: 1, scale: 1 }} 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <h1 style={{ color: 'black' }}>Connexion</h1>
-        <p style={{ color: 'black' }}>Connectez-vous pour accéder à votre compte.</p>
+        <h1 style={{ color: "black" }}>Connexion</h1>
+        <p style={{ color: "black" }}>
+          Connectez-vous pour accéder à votre compte.
+        </p>
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
         <div className="form-group">
-          <label style={{ color: 'black' }} htmlFor="email">
+          <label style={{ color: "black" }} htmlFor="email">
             <Mail size={20} /> Email
           </label>
-          <input 
+          <input
             type="email"
             id="email"
             name="email"
@@ -61,10 +63,10 @@ function FormLogin() {
         </div>
 
         <div className="form-group">
-          <label style={{ color: 'black' }} htmlFor="password">
+          <label style={{ color: "black" }} htmlFor="password">
             <Lock size={20} /> Mot de passe
           </label>
-          <input 
+          <input
             type="password"
             id="password"
             name="password"
@@ -74,8 +76,8 @@ function FormLogin() {
           />
         </div>
 
-        <motion.button 
-          style={{ backgroundColor: 'black', color: 'white' }}
+        <motion.button
+          style={{ backgroundColor: "black", color: "white" }}
           type="submit"
         >
           Se connecter

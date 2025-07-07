@@ -12,7 +12,9 @@ function BannerHome() {
   useEffect(() => {
     const fetchTrendingArticles = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles/trend/trending`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/articles/trend/trending`,
+        );
         setArticles(response.data.slice(0, 3)); // On prend les 3 premiers articles
       } catch (err) {
         console.error("Erreur lors de la récupération des tendances :", err);
@@ -24,21 +26,19 @@ function BannerHome() {
 
     // Assure un temps minimum d'affichage du loader
     const timeout = setTimeout(() => {
-        fetchTrendingArticles().finally(() => setLoading(false));
-        }, 10); // ⏳ Affichage du loader pendant au moins 2s
-    
-        return () => clearTimeout(timeout); // Nettoie le timeout si le composant est démonté
-        
+      fetchTrendingArticles().finally(() => setLoading(false));
+    }, 10); // ⏳ Affichage du loader pendant au moins 2s
+
+    return () => clearTimeout(timeout); // Nettoie le timeout si le composant est démonté
   }, []);
 
-  if (loading) return <LoadingPage/>;
+  if (loading) return <LoadingPage />;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
     <div className="bannerhome">
       {/* Grande image à gauche */}
       <div className="partOne">
-
         <img src={articles[0]?.image} alt={articles[0]?.title} />
 
         <div className="overlay">
@@ -55,7 +55,6 @@ function BannerHome() {
       <div className="part">
         {articles.slice(1, 3).map((article) => (
           <div className="secondImage" key={article.id}>
-
             <img src={article.image} alt={article.title} />
 
             <div className="overlay">

@@ -1,152 +1,152 @@
 /* Conteneur principal */
 .admin-cards-container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Titre de la section */
 .admin-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Wrapper des cartes */
 .admin-cards-wrapper {
-    gap: 20px;
-    display: flex;
-    flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Carte d'article */
 .article-card {
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* En-tête de la carte */
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Icône des options */
 .ellipsis-icon {
-    cursor: pointer;
-    color: #555;
-    transition: color 0.2s;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s;
 }
 
 .ellipsis-icon:hover {
-    color: #000;
+  color: #000;
 }
 
 /* Menu déroulant */
 .dropdown-menu {
-    position: absolute;
-    top: 40px;
-    right: 15px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }
 
 .dropdown-menu button {
-    background: none;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    text-align: left;
-    width: 100%;
-    transition: background 0.2s;
+  background: none;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.2s;
 }
 
 .edit-btn:hover {
-    background: #f1c40f;
-    color: #fff;
+  background: #f1c40f;
+  color: #fff;
 }
 
 .delete-btn:hover {
-    background: #e74c3c;
-    color: #fff;
+  background: #e74c3c;
+  color: #fff;
 }
 
 /* Informations de l'article */
 .category {
-    font-size: 14px;
-    font-weight: bold;
-    color: red;
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
 }
 
 .description {
-    font-size: 14px;
-    color: #333;
+  font-size: 14px;
+  color: #333;
 }
 
-.date, .read-time {
-    font-size: 12px;
-    color: #777;
+.date,
+.read-time {
+  font-size: 12px;
+  color: #777;
 }
 
 /* Message lorsqu'il n'y a pas d'articles */
 .no-data {
-    text-align: center;
-    font-size: 16px;
-    color: #555;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
 }
 
 /* Filtres */
 .filters {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.filters select, 
-.filters input, 
+.filters select,
+.filters input,
 .filters button {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .filters button {
-    background: #e74c3c;
-    color: white;
-    cursor: pointer;
-    border: none;
+  background: #e74c3c;
+  color: white;
+  cursor: pointer;
+  border: none;
 }
 
 .filters button:hover {
-    background: #c0392b;
+  background: #c0392b;
 }
-
 
 /* Responsive */
 @media screen and (max-width: 600px) {
-    .admin-cards-wrapper {
-        grid-template-columns: 1fr;
-    }
+  .admin-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
 
-    /* Filtres */
-    .filters {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
+  /* Filtres */
+  .filters {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
 }

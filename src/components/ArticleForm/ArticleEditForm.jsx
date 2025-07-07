@@ -27,7 +27,9 @@ function ArticleEditForm({ article, onClose }) {
     axios
       .get(`${import.meta.env.VITE_API_BASE_URL}/categories`)
       .then((res) => setCategories(res.data))
-      .catch((err) => console.error("Erreur de chargement des catégories:", err));
+      .catch((err) =>
+        console.error("Erreur de chargement des catégories:", err),
+      );
   }, []);
 
   const handleChange = (e) => {
@@ -43,12 +45,14 @@ function ArticleEditForm({ article, onClose }) {
       await axios.put(
         `${import.meta.env.VITE_API_BASE_URL}/articles/${article.id}`,
         formData,
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json" } },
       );
       onClose();
     } catch (error) {
       console.error("Erreur:", error.response?.data || error.message);
-      alert(`Erreur: ${error.response?.data?.message || "Impossible de modifier l'article."}`);
+      alert(
+        `Erreur: ${error.response?.data?.message || "Impossible de modifier l'article."}`,
+      );
     } finally {
       setLoading(false);
     }
@@ -74,16 +78,35 @@ function ArticleEditForm({ article, onClose }) {
                 className="form-step"
               >
                 <label>Titre</label>
-                <input type="text" name="titre" value={formData.titre} onChange={handleChange} required />
+                <input
+                  type="text"
+                  name="titre"
+                  value={formData.titre}
+                  onChange={handleChange}
+                  required
+                />
 
                 <label>Extrait</label>
-                <input type="text" name="extrait" value={formData.extrait} onChange={handleChange} required />
+                <input
+                  type="text"
+                  name="extrait"
+                  value={formData.extrait}
+                  onChange={handleChange}
+                  required
+                />
 
                 <label>Catégorie</label>
-                <select name="category" value={formData.category} onChange={handleChange} required>
+                <select
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="">Sélectionnez une catégorie</option>
                   {categories.map((cat) => (
-                    <option key={cat.id} value={cat.id}>{cat.name}</option>
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
+                    </option>
                   ))}
                 </select>
               </motion.div>
@@ -99,7 +122,12 @@ function ArticleEditForm({ article, onClose }) {
                 className="form-step"
               >
                 <label>Texte</label>
-                <textarea name="description" value={formData.description} onChange={handleChange} required />
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  required
+                />
               </motion.div>
             )}
 
@@ -113,25 +141,48 @@ function ArticleEditForm({ article, onClose }) {
                 className="form-step"
               >
                 <label>Image</label>
-                <input type="text" name="image" value={formData.image} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="image"
+                  value={formData.image}
+                  onChange={handleChange}
+                />
 
                 <label>Vidéo (lien YouTube, etc.)</label>
-                <input type="text" name="video" value={formData.video} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="video"
+                  value={formData.video}
+                  onChange={handleChange}
+                />
 
                 <label>Article en tendance</label>
-                <input type="checkbox" name="trend" checked={formData.trend} onChange={handleChange} />
+                <input
+                  type="checkbox"
+                  name="trend"
+                  checked={formData.trend}
+                  onChange={handleChange}
+                />
               </motion.div>
             )}
           </AnimatePresence>
 
           <div className="form-navigation">
             {step > 1 && (
-              <button type="button" className="nav-button" onClick={() => setStep(step - 1)}>
+              <button
+                type="button"
+                className="nav-button"
+                onClick={() => setStep(step - 1)}
+              >
                 <ChevronLeft />
               </button>
             )}
             {step < 3 && (
-              <button type="button" className="nav-button" onClick={() => setStep(step + 1)}>
+              <button
+                type="button"
+                className="nav-button"
+                onClick={() => setStep(step + 1)}
+              >
                 <ChevronRight />
               </button>
             )}

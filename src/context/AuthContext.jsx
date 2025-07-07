@@ -10,35 +10,45 @@ export const AuthProvider = ({ children }) => {
   // Charger l'utilisateur si un token existe
   useEffect(() => {
     if (token) {
-      axios.get(import.meta.env.VITE_API_BASE_URL + "/auth/me", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => setUser(res.data))
-      .catch(() => {
-        setUser(null);
-        setToken(null);
-        localStorage.removeItem("token");
-      });
+      axios
+        .get(import.meta.env.VITE_API_BASE_URL + "/auth/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => setUser(res.data))
+        .catch(() => {
+          setUser(null);
+          setToken(null);
+          localStorage.removeItem("token");
+        });
     }
   }, [token]);
 
   // Fonction de connexion
   const login = async (formData) => {
     try {
-      const res = await axios.post(import.meta.env.VITE_API_BASE_URL + "/auth/login", formData);
-      
+      const res = await axios.post(
+        import.meta.env.VITE_API_BASE_URL + "/auth/login",
+        formData,
+      );
+
       const newToken = res.data.token;
       setToken(newToken);
       localStorage.setItem("token", newToken);
 
       // Récupérer les infos de l'utilisateur
-      const userRes = await axios.get(import.meta.env.VITE_API_BASE_URL + "/auth/me", {
-        headers: { Authorization: `Bearer ${newToken}` },
-      });
+      const userRes = await axios.get(
+        import.meta.env.VITE_API_BASE_URL + "/auth/me",
+        {
+          headers: { Authorization: `Bearer ${newToken}` },
+        },
+      );
 
       setUser(userRes.data);
     } catch (error) {
-      console.error("Erreur de connexion:", error.response?.data || error.message);
+      console.error(
+        "Erreur de connexion:",
+        error.response?.data || error.message,
+      );
       throw error;
     }
   };
