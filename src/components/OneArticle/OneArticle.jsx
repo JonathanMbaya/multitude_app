@@ -5,11 +5,11 @@ import "./OneArticle.css";
 
 function OneArticle() {
   const { id } = useParams();
-  console.log("ID récupéré :", id); // ✅ Debug
+  // ✅ Debug
 
   const [article, setArticle] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
-  const [categoryName , setCategoryName] = useState(null)
+  const [categoryName, setCategoryName] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -22,18 +22,21 @@ function OneArticle() {
 
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles/${id}`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/articles/${id}`,
+        );
         const articleData = response.data;
         setArticle(articleData);
 
         // Vérification que la catégorie existe avant de faire la requête
         if (articleData.category) {
-
-            const categoryName = getCategoryName(articleData.category);
-            setCategoryName(categoryName);
+          const categoryName = getCategoryName(articleData.category);
+          setCategoryName(categoryName);
 
           if (categoryName) {
-            const suggResponse = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/articles/category/${articleData.category}`);
+            const suggResponse = await axios.get(
+              `${import.meta.env.VITE_API_BASE_URL}/articles/category/${articleData.category}`,
+            );
             setSuggestions(suggResponse.data);
           } else {
             setSuggestions([]);
@@ -69,41 +72,38 @@ function OneArticle() {
 
   return (
     <main className="singlePage">
-        <div className="part-one-article">
-            <h1>{article.titre}</h1>
-            <h2>{article.extrait}</h2>
+      <div className="part-one-article">
+        <h1>{article.titre}</h1>
+        <h2>{article.extrait}</h2>
 
-            <img src={article.image} alt={article.titre} />
+        <img src={article.image} alt={article.titre} />
 
-            <p>{article.description}</p>
+        <p>{article.description}</p>
 
-            <video 
-                src={article.video} 
-                muted 
-                loop 
-            />
-        </div>
+        <video src={article.video} muted loop />
+      </div>
 
-        <aside className="part-suggestion">
-            <h2>Suggestions</h2>
+      <aside className="part-suggestion">
+        <h2>Suggestions</h2>
 
-            {suggestions.length > 0 ? (
-            suggestions.map((suggestion) => (
-                <Link to={`/article/${suggestion.id}`}>
-                    <div className="post-suggestion" key={suggestion.id}>
-                        <img src={suggestion.image} alt={suggestion.titre} />
-                        <div className="post-text">
-                            <p><span>{categoryName}</span></p>
-                            <h3>{suggestion.titre}</h3>
-                        </div>
-                    </div>
-                </Link>
-
-            ))
-            ) : (
-            <p>Aucune suggestion disponible.</p>
-            )}
-        </aside>
+        {suggestions.length > 0 ? (
+          suggestions.map((suggestion) => (
+            <Link to={`/article/${suggestion.id}`}>
+              <div className="post-suggestion" key={suggestion.id}>
+                <img src={suggestion.image} alt={suggestion.titre} />
+                <div className="post-text">
+                  <p>
+                    <span>{categoryName}</span>
+                  </p>
+                  <h3>{suggestion.titre}</h3>
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p>Aucune suggestion disponible.</p>
+        )}
+      </aside>
     </main>
   );
 }
